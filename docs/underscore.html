@@ -238,7 +238,7 @@ for Closure Compiler “advanced” mode.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-13">&#182;</a>
               </div>
-              <h2 id="collection-functions">Collection Functions</h2>
+              <h2 id="collection-functions">コレクション</h2>
 
             </div>
             
@@ -263,10 +263,18 @@ for Closure Compiler “advanced” mode.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-15">&#182;</a>
               </div>
-              <p>The cornerstone, an <code>each</code> implementation, aka <code>forEach</code>.
-Handles objects with the built-in <code>forEach</code>, arrays, and raw objects.
-Delegates to <strong>ECMAScript 5</strong>‘s native <code>forEach</code> if available.</p>
-
+              <p>他のコードの土台となる<code>each</code>の実装です。<code>forEach</code>メソッドを持つオブジェクト、配列、生のオブジェクトを処理します。
+                <strong>ECMAScript 5</strong>の<code>forEach</code>が使用できる場合にはそちらを使います。
+                <br>
+                <p class="comment">
+                  <code>length</code>が数値(NaNでない)として定義されている場合(配列)には<code>for</code>文で各要素に対して<code>iterator</code>を実行し、そうでない場合(オブジェクト)には<code>for in</code>文で<code>iterator</code>を実行していきます。
+                  <br>
+                  <code>iterator</code>が<code>breaker</code>を返した場合には早期に終了(<code>break</code>)してしまいます。<code>breaker</code>は<a href="#section-6">クロージャ内で定義されていて</a>ユーザからは参照できない空オブジェクトです。
+                  従って、ユーザが定義した<code>iterator</code>関数から空オブジェクトを返しても<code>break</code>できませんが、underscore内の関数は<code>breaker</code>を返すことで<code>break</code>を実現できます(例：<a href="#section-23">any</a>)。
+                  <br>
+                  良い例は思いつきませんが、<code>context</code>を指定することで<code>iterator</code>内の<code>this</code>を指定できます。
+              </p>
+              </p>
             </div>
             
             <div class="content"><div class='highlight'><pre>  <span class="hljs-keyword">var</span> each = _.each = _.forEach = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(obj, iterator, context)</span> {</span>
