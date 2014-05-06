@@ -267,7 +267,7 @@ for Closure Compiler “advanced” mode.</p>
                 <strong>ECMAScript 5</strong>の<code>forEach</code>が使用できる場合にはそちらを使います。
                 <br>
                 <p class="comment">
-                  <code>length</code>が数値(NaNでない)として定義されている場合(配列)には<code>for</code>文で各要素に対して<code>iterator</code>を実行し、そうでない場合(オブジェクト)には<code>for in</code>文で<code>iterator</code>を実行していきます。
+                  <code>length</code>が数値(NaNでない)として定義されている場合(配列)には<code>for</code>文で各要素に対して<code>iterator</code>を実行し、そうでない場合(オブジェクト)にはオブジェクトのkeyを取得して<code>iterator</code>を実行していきます。
                   <br>
                   <code>iterator</code>が<code>breaker</code>を返した場合には早期に終了(<code>break</code>)してしまいます。<code>breaker</code>は<a href="#section-6">クロージャ内で定義されていて</a>ユーザからは参照できない空オブジェクトです。
                   従って、ユーザが定義した<code>iterator</code>関数から空オブジェクトを返しても<code>break</code>できませんが、underscore内の関数は<code>breaker</code>を返すことで<code>break</code>を実現できます(例：<a href="#section-23">any</a>)。
