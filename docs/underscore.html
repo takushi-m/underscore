@@ -303,9 +303,14 @@ for Closure Compiler “advanced” mode.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-16">&#182;</a>
               </div>
-              <p>Return the results of applying the iterator to each element.
-Delegates to <strong>ECMAScript 5</strong>‘s native <code>map</code> if available.</p>
-
+              <p>
+                <code>iterator</code>を各要素に適用し、まとめて返却します。
+                <strong>ECMAScript 5</strong>の<code>map</code>が使用できる場合はそちらを使います。
+              </p> 
+              <br>
+              <p class="comment">
+                <code>each</code>を使ってループを回して<code>iterator</code>を適用していくだけです。
+              </p>
             </div>
             
             <div class="content"><div class='highlight'><pre>  _.map = _.collect = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(obj, iterator, context)</span> {</span>

@@ -463,12 +463,11 @@ _.each({one: 1, two: 2, three: 3}, alert);
 
       <p id="map">
         <b class="header">map</b><code>_.map(list, iterator, [context])</code>
-        <span class="alias">Alias: <b>collect</b></span>
+        <span class="alias">別名: <b>collect</b></span>
         <br />
-        Produces a new array of values by mapping each value in <b>list</b>
-        through a transformation function (<b>iterator</b>). If the native <b>map</b> method
-        exists, it will be used instead. If <b>list</b> is a JavaScript object,
-        <b>iterator</b>'s arguments will be <tt>(value, key, list)</tt>.
+        <b>iterator</b>関数により<b>list</b>の各値を変換し、新しい配列を作ります。
+        もしネイティブの<b>map</b>が存在する場合はそちらを変わりに使います。もし<b>list</b>が
+        オブジェクトであった場合には、<b>iterator</b>の引数は<tt>(value, key, list)</tt>になります。
       </p>
       <pre>
 _.map([1, 2, 3], function(num){ return num * 3; });
