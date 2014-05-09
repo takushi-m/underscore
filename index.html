@@ -435,14 +435,13 @@
 
       <p id="each">
         <b class="header">each</b><code>_.each(list, iterator, [context])</code>
-        <span class="alias">Alias: <b>forEach</b></span>
+        <span class="alias">別名: <b>forEach</b></span>
         <br />
-        Iterates over a <b>list</b> of elements, yielding each in turn to an <b>iterator</b>
-        function. The <b>iterator</b> is bound to the <b>context</b> object, if one is
-        passed. Each invocation of <b>iterator</b> is called with three arguments:
-        <tt>(element, index, list)</tt>. If <b>list</b> is a JavaScript object, <b>iterator</b>'s
-        arguments will be <tt>(value, key, list)</tt>. Delegates to the native
-        <b>forEach</b> function if it exists, and returns the original <b>list</b> for chaining.
+        <b>iterator</b>関数を順に適応しながら、<b>list</b>の要素をめぐっていきます。
+        <b>context</b>オブジェクトがあれば<b>iterator</b>関数は束縛します。
+        三つの引数<tt>(element, index, list)</tt>により<b>iterator</b>関数は呼び出されます。
+        もし<b>list</b>がオブジェクトであれば<tt>(value, key, list)</tt>で呼びだれます。
+        もしネイティブの<b>forEach</b>関数が存在すればそちらに委譲し、chainingのためにもとの<b>list</b>を返します。
       </p>
       <pre>
 _.each([1, 2, 3], alert);
@@ -451,14 +450,9 @@ _.each({one: 1, two: 2, three: 3}, alert);
 =&gt; alerts each number value in turn...</pre>
 
       <p>
-        <i>
-          Note: Collection functions work on arrays, objects, and
-          array-like objects such as</i> <tt>arguments</tt>, <tt>NodeList</tt><i>
-          and similar. But it works by duck-typing, so avoid passing objects with
-          a numeric <tt>length</tt> property. It's also good to note that an
-          <tt>each</tt> loop cannot be broken out of — to break, use <b>_.find</b>
-          instead.
-        </i>
+        注意：コレクション関数は配列、オブジェクト、<tt>arguments</tt>や<tt>NodeList</tt>などの配列のようなオブジェクトに対して動作します。
+        しかしながら、数値のlengthプロパティをもつオブジェクトは配列とみなして動作するので、そのようなオブジェクトを渡すことは避けてください。
+        また、<b>each</b>によるループはbreakすることができないので、代わりに<b>_.find</b>を使ってください。
       </p>
 
       <p id="map">
