@@ -436,10 +436,7 @@ Delegates to <strong>ECMAScript 5</strong>‘s native <code>reduceRight</code> i
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-20">&#182;</a>
               </div>
-              <p>Return all the elements that pass a truth test.
-Delegates to <strong>ECMAScript 5</strong>‘s native <code>filter</code> if available.
-Aliased as <code>select</code>.</p>
-
+              <p>テストをパスするすべての要素を返します。</p>
             </div>
             
             <div class="content"><div class='highlight'><pre>  _.filter = _.select = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(obj, predicate, context)</span> {</span>
@@ -461,8 +458,8 @@ Aliased as <code>select</code>.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-21">&#182;</a>
               </div>
-              <p>Return all the elements for which a truth test fails.</p>
-
+              <p>テストを<strong>パスしない</strong>すべての要素を返します。</p>
+              <p class="comment">論理を反転させて<code>filter</code>を実行することで実現できます。</p>
             </div>
             
             <div class="content"><div class='highlight'><pre>  _.reject = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(obj, predicate, context)</span> {</span>
