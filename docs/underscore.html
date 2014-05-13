@@ -506,10 +506,16 @@ Aliased as <code>all</code>.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-23">&#182;</a>
               </div>
-              <p>Determine if at least one element in the object matches a truth test.
-Delegates to <strong>ECMAScript 5</strong>‘s native <code>some</code> if available.
-Aliased as <code>any</code>.</p>
-
+              <p>
+                少なくとも一つの要素がtrueとなるかテストします。<strong>ECMAScript 5</strong>の<code>some</code>関数があればそちらに委譲します。
+              </p>
+              <p class="comment">
+                基本的にはeachで順番にテストしていき、predicateがtrueになる要素が見つかったらbreakします。breakはbreakerを返すことで実現しています。
+                <br>
+                breakerはunderscore内でのみ参照可能な変数で空のオブジェクトが代入されています。したがって、eachに渡す関数が空のオブジェクトを返したとしてもbreakは起こらず、underscore内の関数のみが安全にbreakできます。
+                <br>
+                最後の「!!」はresultにboolean以外のものが代入された場合に、boolean型を返すようにする処理です。
+              </p>
             </div>
             
             <div class="content"><div class='highlight'><pre>  <span class="hljs-keyword">var</span> any = _.some = _.any = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(obj, predicate, context)</span> {</span>
