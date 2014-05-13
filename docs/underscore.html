@@ -412,8 +412,8 @@ Delegates to <strong>ECMAScript 5</strong>‘s native <code>reduceRight</code> i
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-19">&#182;</a>
               </div>
-              <p>Return the first value which passes a truth test. Aliased as <code>detect</code>.</p>
-
+              <p>最初にテストをパスする要素を返します。</p>
+              <p class="comment">anyで順番にテストしていって見つかったら早期終了して値を返します。見つからなかったらundefinedにするのは仕様のようです。</p>
             </div>
             
             <div class="content"><div class='highlight'><pre>  _.find = _.detect = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(obj, predicate, context)</span> {</span>
