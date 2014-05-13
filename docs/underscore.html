@@ -334,9 +334,9 @@ for Closure Compiler “advanced” mode.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-17">&#182;</a>
               </div>
-              <p><strong>Reduce</strong> builds up a single result from a list of values, aka <code>inject</code>,
-or <code>foldl</code>. Delegates to <strong>ECMAScript 5</strong>‘s native <code>reduce</code> if available.</p>
-
+              <p>
+                <strong>reduce</strong>は配列から一つの値を生成する関数です。<strong>ECMAScript 5</strong>の<code>reduce</code>が使える場合にはそちらに委譲します。
+              </p>
             </div>
             
             <div class="content"><div class='highlight'><pre>  _.reduce = _.foldl = _.inject = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(obj, iterator, memo, context)</span> {</span>
@@ -369,7 +369,13 @@ or <code>foldl</code>. Delegates to <strong>ECMAScript 5</strong>‘s native <co
               </div>
               <p>The right-associative version of reduce, also known as <code>foldr</code>.
 Delegates to <strong>ECMAScript 5</strong>‘s native <code>reduceRight</code> if available.</p>
-
+              <p class="comment">
+                reduceが「左」からなら、reduceRightは「右」から縮めていく関数です。配列が渡された場合はlengthを取得して1減らしながらeachでループを回していくだけになります。
+                <br>
+                オブジェクトがきた場合はlengthが定義できないので、まずkeyの配列を取得してそのlengthをとります。そして配列と同じように1減らしながらkeyからvalueを取得してループを回します。
+                <br>
+                eachで取得したvalueは完全に無視していますが、ループの回数は同じになるはずなので問題なしです。
+              </p>
             </div>
             
             <div class="content"><div class='highlight'><pre>  _.reduceRight = _.foldr = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(obj, iterator, memo, context)</span> {</span>
